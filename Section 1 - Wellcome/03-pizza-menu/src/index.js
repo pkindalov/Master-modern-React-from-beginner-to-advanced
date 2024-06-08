@@ -106,6 +106,9 @@ function Menu() {
 }
 
 function Pizza(props) {
+
+  if(props.pizzaObj.soldOut) return null;
+
   return (
     <li className="pizza">
       <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
@@ -129,6 +132,14 @@ function Footer() {
   // } else {
   //   alert("Sorry, we'are closed");
   // }
+
+  //useful when we want to render full components , no some piece of JSX
+  // if (!isOpen)
+  //   return (
+  //     <p>
+  //       We are happy to wellcome you between {openHour}:00 and {closeHour}:00
+  //     </p>
+  //   );
 
   return (
     <footer className="footer">
