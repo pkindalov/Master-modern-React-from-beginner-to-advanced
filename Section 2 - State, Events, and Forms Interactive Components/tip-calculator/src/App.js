@@ -8,6 +8,9 @@ function App() {
   const [yourServiceRating, setYourServiceRating] = useState(0);
   const [friendServiceRating, setFriendServiceRating] = useState(0);
 
+  const tip = Math.round((yourServiceRating + friendServiceRating) / 2);
+  const result = bill + tip;
+
   function handleBillChange(billValue) {
     setBill(billValue);
   }
@@ -48,7 +51,12 @@ function App() {
       </SelectPercentage>
 
       {bill > 0 && (
-        <Output result={0} bill={bill} tip={0} onHandleReset={handleReset} />
+        <Output
+          result={result}
+          bill={bill}
+          tip={tip}
+          onHandleReset={handleReset}
+        />
       )}
     </div>
   );
